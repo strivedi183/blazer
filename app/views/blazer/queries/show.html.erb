@@ -3,16 +3,16 @@
 <div style="position: fixed; top: 0; left: 0; right: 0; background-color: whitesmoke; height: 60px; z-index: 1001;">
   <div class="container">
     <div class="row" style="padding-top: 13px;">
-      <div class="col-sm-9">
+      <div class="col-sm-8">
         <%= link_to "Home", root_path, class: "btn btn-primary", style: "vertical-align: top; margin-right: 5px;" %>
         <h3 style="margin: 0; line-height: 34px; display: inline-block;">
           <%= @query.name %>
         </h3>
       </div>
-      <div class="col-sm-3 text-right">
+      <div class="col-sm-4 text-right">
         <%= link_to "Edit", edit_query_path(@query), class: "btn btn-default" %>
         <%= link_to "Fork", new_query_path(statement: @query.statement), class: "btn btn-info" %>
-        <%= link_to "Add Check", new_check_path(query_id: @query.id), class: "btn btn-default" %>
+        <%= link_to "Check", new_check_path(query_id: @query.id), class: "btn btn-info" %>
 
         <% if !@error and @success %>
           <%= button_to "Download", run_queries_path(statement: @query.statement, query_id: @query.id, format: "csv"), class: "btn btn-primary" %>
