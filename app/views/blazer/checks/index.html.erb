@@ -1,1 +1,14 @@
-<p>Hi</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Query</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @checks.each do |check| %>
+      <tr>
+        <td><%= link_to check.blazer_query.name, check.blazer_query %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
