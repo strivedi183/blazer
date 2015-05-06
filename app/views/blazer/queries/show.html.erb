@@ -11,6 +11,7 @@
       </div>
       <div class="col-sm-3 text-right">
         <%= link_to "Edit", edit_query_path(@query), class: "btn btn-default" %>
+        <%= link_to "Fork", new_query_path(statement: @query.statement), class: "btn btn-info" %>
         <%= link_to "Add Check", new_check_path(query_id: @query.id), class: "btn btn-default" %>
 
         <% if !@error and @success %>
