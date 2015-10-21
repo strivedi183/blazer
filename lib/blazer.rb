@@ -15,9 +15,11 @@ module Blazer
     attr_accessor :from_email
     attr_accessor :cache
     attr_accessor :transform_statement
+    attr_accessor :use_local_storage
   end
   self.audit = true
   self.user_name = :name
+  self.use_local_storage = false
 
   def self.time_zone=(time_zone)
     @time_zone = time_zone.is_a?(ActiveSupport::TimeZone) ? time_zone : ActiveSupport::TimeZone[time_zone.to_s]

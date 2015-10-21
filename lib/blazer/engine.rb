@@ -20,6 +20,8 @@ module Blazer
       Blazer::Query.belongs_to :creator, class_name: Blazer.user_class.to_s if Blazer.user_class
 
       Blazer.cache ||= Rails.cache
+
+      Blazer.use_local_storage = Blazer.settings.key?("use_local_storage") ? Blazer.settings["use_local_storage"] : false
     end
   end
 end

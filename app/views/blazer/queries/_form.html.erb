@@ -31,6 +31,9 @@
         </script>
         <%= link_to "Run", "#", class: "btn btn-info", id: "run", style: "vertical-align: top;" %>
       </div>
+      <% if Blazer.use_local_storage %>
+        <%= link_to "Restore from local storage", "#", id: "restore", class: "btn btn-warning" %>
+      <% end %>
     </div>
     <div class="col-xs-4">
       <div class="form-group">
@@ -142,4 +145,15 @@
     $("#query_statement").val(editor.getValue());
     return true;
   });
+
+  <% if Blazer.use_local_storage %>
+    editor.on("input", function() {
+      localStorage.setItem("query", editor.getValue());
+    });
+
+    $("#restore").click(function(e){
+      e.preventDefault();
+      editor.setValue(localStorage.getItem("query"));
+    });
+  <% end %>
 </script>
